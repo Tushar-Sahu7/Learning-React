@@ -1,0 +1,25 @@
+{
+    "name": "1.-react",
+    "version": "1.0.0",
+    "description": "this is a react app",
+    "scripts": {
+        "test": "jest"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/Tushar-Sahu7/Learning-React.git"
+    },
+    "author": "Tushar Sahu",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/Tushar-Sahu7/Learning-React/issues"
+    },
+    "homepage": "https://github.com/Tushar-Sahu7/Learning-React#readme",
+    "devDependencies": {
+        "parcel": "^2.15.2"
+    },
+    "dependencies": {
+        "react": "^19.1.0",
+        "react-dom": "^19.1.0"
+    }
+}

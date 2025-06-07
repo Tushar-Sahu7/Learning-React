@@ -1,0 +1,23 @@
+* {
+  box-sizing: border-box;
+  margin: 0px;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f0f0f0;
+  color: #333;
+  margin: 15px;
+}
+
+.hero-section {
+  margin: 14% 0;
+}
+
+.title,
+.heading {
+  text-align: center;
+  font-size: 24px;
+  margin-bottom: 20px;
+}

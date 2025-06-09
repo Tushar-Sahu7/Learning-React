@@ -6,18 +6,19 @@
 
 body {
   font-family: Arial, sans-serif;
-  background-color: #f0f0f0;
-  color: #333;
+  background-color: #eaeaea;
   margin: 15px;
 }
 
 .hero-section {
   margin: 14% 0;
+
 }
 
 .title,
 .heading {
   text-align: center;
   font-size: 24px;
+  color: rgb(64, 64, 64);
   margin-bottom: 20px;
 }

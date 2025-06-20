@@ -1,12 +1,12 @@
 import "./App.css";
+import Header from "./Components/Header";
+import { Outlet } from "react-router-dom";
 
 export function App() {
   return (
     <>
-      <h1>Namaste Food App</h1>
-      <p>
-        Edit <code>src/App.jsx</code> to get started!
-      </p>
+      <Header />
+      <Outlet />
     </>
   );
 }

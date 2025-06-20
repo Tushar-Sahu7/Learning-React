@@ -1,0 +1,98 @@
+import { useState, useEffect } from "react";
+import RestaurentCard from "./RestaurantCard";
+import Shimmer from "./Shimmer";
+import { Link } from "react-router-dom";
+
+const Body = () => {
+  const [listOfRestaurants, setListOfRestaurants] = useState([]);
+  const [searchText, setSearchText] = useState("");
+  const [filteredRestaurant, setFilteredRestaurant] = useState([]);
+  const [loading, setLoading] = useState(false);
+
+  const fetchData = async () => {
+    setLoading(true);
+    const data = await fetch(
+      "https://www.swiggy.com/dapi/restaurants/list/v5?lat=26.83730&lng=80.91650&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
+    );
+    const json = await data.json();
+    // console.log(json);
+    const newRestaurants =
+      json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle
+        ?.restaurants || [];
+
+    setListOfRestaurants(newRestaurants);
+    setFilteredRestaurant(newRestaurants);
+    setLoading(false);
+  };
+
+  useEffect(() => {
+    fetchData();
+  }, []);
+
+  const handleFilter = () => {
+    // Split search text into words, match any word in name or cuisines
+    const searchWords = searchText.toLowerCase().split(" ").filter(Boolean);
+    const filtered = listOfRestaurants.filter((res) => {
+      const name = res.info.name.toLowerCase();
+      const cuisines = res.info.cuisines
+        ? res.info.cuisines.join(" ").toLowerCase()
+        : "";
+      return searchWords.some(
+        (word) => name.includes(word) || cuisines.includes(word)
+      );
+    });
+    setFilteredRestaurant(filtered);
+  };
+
+  return listOfRestaurants.length === 0 ? (
+    <Shimmer />
+  ) : (
+    <div className="body">
+      <div className="filter">
+        <div className="search">
+          <input
+            type="text"
+            className="search-box"
+            value={searchText}
+            onChange={(e) => setSearchText(e.target.value)}
+            onKeyDown={(e) => {
+              if (e.key === "Enter") {
+                handleFilter();
+              }
+            }}
+            placeholder="Search Restaurants..."
+          />
+          <button className="search-btn" onClick={handleFilter}>
+            Search
+          </button>
+        </div>
+        <button
+          className="filter-btn"
+          onClick={() => {
+            const topRated = listOfRestaurants.filter(
+              (res) => res.info.avgRating >= 4.5
+            );
+            setFilteredRestaurant(topRated);
+          }}
+        >
+          Top Rated Restaurant
+        </button>
+      </div>
+
+      <div className="res-container">
+        {filteredRestaurant.map((restaurant) => (
+          <Link
+            to={"/Restaurant/" + restaurant.info.id}
+            key={restaurant.info.id}
+          >
+            <RestaurentCard resData={restaurant} />
+          </Link>
+        ))}
+      </div>
+
+      {loading && <p>Loading more restaurants...</p>}
+    </div>
+  );
+};
+
+export default Body;

@@ -1,24 +1,12 @@
-import { useEffect, useState } from "react";
+import useRestaurantMenu from "../Utils/useRestaurantMenu";
 import Shimmer from "./Shimmer";
-import { MENU_API, CDN_URLS } from "../Utils/constants";
 import { useParams } from "react-router-dom";
 
 const RestaurantMenu = () => {
-  const [resInfo, setResInfo] = useState(null);
   const { resId } = useParams();
 
-  useEffect(() => {
-    fetchMenu();
-  }, []);
-
-  const fetchMenu = async () => {
-    const data = await fetch(MENU_API + resId);
-    console.log(MENU_API + resId);
-
-    const json = await data.json();
-    // console.log(json);
-    setResInfo(json.data);
-  };
+  const resInfo = useRestaurantMenu(resId);
+  console.log(resInfo);
 
   if (resInfo === null) {
     return <Shimmer />;
@@ -44,6 +32,7 @@ const RestaurantMenu = () => {
           {itemCards.map((item) => (
             <li key={item.card.info.id} className="res-card">
               <img
+                className="menu-img"
                 src={
                   "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_300,h_300,c_fit/" +
                   item.card.info.imageId

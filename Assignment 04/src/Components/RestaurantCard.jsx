@@ -10,17 +10,29 @@ const RestaurentCard = (props) => {
   return (
     <div className="res-card">
       <img alt="res-logo" src={CDN_URLS + cloudinaryImageId} />
+      <div></div>
       <h3>{name}</h3>
-      <h4>{cuisines.join(", ")}</h4>
       <span className="rating">
         <FontAwesomeIcon icon={faStar} style={{ color: "#fff" }} size="sm" />
         {"  "}
         {avgRating}
       </span>
+      <h4>{cuisines.join(", ")}</h4>
       <h4>{costForTwo}</h4>
       <h4>{sla.deliveryTime} minutes</h4>
     </div>
   );
+};
+
+export const withPromotedLabel = (RestaurentCard) => {
+  return (props) => {
+    return (
+      <div>
+        <label className="label">Open</label>
+        <RestaurentCard {...props} />
+      </div>
+    );
+  };
 };
 
 export default RestaurentCard;

@@ -1,5 +1,5 @@
 import "./App.css";
-import React, { lazy, Suspense } from "react";
+import React, { lazy, Suspense, useState, useEffect } from "react";
 import { createRoot } from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Header from "./Components/Header";
@@ -9,16 +9,35 @@ import About from "./Components/About";
 import Contact from "./Components/Contact";
 import Error from "./Components/Error";
 import RestaurantMenu from "./Components/RestaurantMenu";
+import Cart from "./Components/Cart";
+import UserContext from "./Utils/userContext.js";
+import { Provider } from "react-redux";
+import appStore from "./Utils/appStore.js";
 // import Grocery from "./Components/Grocery";
 
 const Grocery = lazy(() => import("./Components/Grocery.jsx"));
 
+//authentication
+
 const App = () => {
+  const [userName, setUserName] = useState();
+
+  useEffect(() => {
+    // Make an API call and send username and password
+    const data = {
+      name: "Tushar Sahu",
+    };
+    setUserName(data.name);
+  }, []);
   return (
-    <>
-      <Header />
-      <Outlet />
-    </>
+    <Provider store={appStore}>
+      <UserContext value={{ loggedInUser: userName, setUserName }}>
+        <>
+          <Header />
+          <Outlet />
+        </>
+      </UserContext>
+    </Provider>
   );
 };
 
@@ -50,6 +69,10 @@ const appRouter = createBrowserRouter([
       {
         path: "/restaurant/:resId",
         element: <RestaurantMenu />,
+      },
+      {
+        path: "/cart",
+        element: <Cart />,
       },
     ],
     errorElement: <Error />,

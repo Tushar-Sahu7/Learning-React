@@ -1,14 +1,21 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUtensils, faCartShopping } from "@fortawesome/free-solid-svg-icons";
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../Utils/useOnlineStatus";
+import UserContext from "../Utils/userContext";
+import { useSelector } from "react-redux";
 
 const Header = () => {
   const [btnName, setBtnName] = useState("Login");
 
   const onlineStatus = useOnlineStatus();
 
+  const { loggedInUser } = useContext(UserContext);
+  // console.log(loggedInUser);
+
+  //Subscribing to the store using Selector
+  const cartItems = useSelector((store) => store.cart.items);
   return (
     <div className="header">
       <div className="logo-container">
@@ -38,9 +45,11 @@ const Header = () => {
           </li>
           <li>
             <Link to="/cart">
-              <FontAwesomeIcon icon={faCartShopping} size="xl" />
+              <FontAwesomeIcon icon={faCartShopping} size="xl" />(
+              {cartItems.length} Items)
             </Link>
           </li>
+          <li>{loggedInUser}</li>
         </ul>
         <button
           className="login"

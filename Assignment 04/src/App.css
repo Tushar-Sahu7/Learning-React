@@ -180,6 +180,7 @@
 
 .nav-items ul {
   display: flex;
+  flex-wrap: wrap;
   list-style-type: none;
   align-items: center;
   justify-content: center;
@@ -188,6 +189,7 @@
 .nav-items ul li,
 .login {
   padding: 0rem 1rem;
+  margin: 0.5rem 0;
   color: white;
   text-transform: uppercase;
   font-weight: bold;
@@ -215,11 +217,10 @@
 .filter {
   display: flex;
   flex-wrap: wrap;
+  gap: 1rem;
   align-content: center;
   align-items: center;
-  justify-content: space-evenly;
-  position: sticky;
-  top: 7rem;
+  justify-content: space-around;
   margin: 1rem;
   border-radius: 1rem;
   background-color: ghostwhite;
@@ -255,7 +256,6 @@
 }
 
 .filter-btn {
-  margin: 1rem 2rem;
   padding: .5rem 1rem;
   border-radius: 2rem;
   letter-spacing: .1rem;
@@ -401,7 +401,7 @@
 .item-container {
   width: 100%;
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   border-radius: 0.5rem;
   line-height: 1.5rem;
   scrollbar-width: none;
@@ -411,6 +411,8 @@
 .item-card {
   width: 100%;
   display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
   justify-content: space-between;
   margin-bottom: 1rem;
   padding: 1rem;
@@ -444,15 +446,19 @@
 
 .item-card p {
   color: var(--text-500);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-break: break-word;
+  overflow-wrap: anywhere;
+
 }
 
 .item-img {
+  height: 13rem;
   position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
-  flex-direction: column;
-  margin-bottom: 1rem;
 }
 
 .placeholder {
@@ -467,6 +473,7 @@
 
 
 .item-btn {
+  margin: 1rem;
   padding: .5rem 1rem;
   border-radius: 1rem;
   letter-spacing: .1rem;

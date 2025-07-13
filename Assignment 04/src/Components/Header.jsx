@@ -3,7 +3,7 @@ import { faUtensils, faCartShopping } from "@fortawesome/free-solid-svg-icons";
 import { useState, useContext } from "react";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../Utils/useOnlineStatus";
-import UserContext from "../Utils/userContext";
+import UserContext, { themeContext } from "../Utils/userContext";
 import { useSelector } from "react-redux";
 
 const Header = () => {
@@ -50,15 +50,19 @@ const Header = () => {
             </Link>
           </li>
           <li>{loggedInUser}</li>
+          <li>
+            <button
+              className="login"
+              onClick={() => {
+                btnName === "Login"
+                  ? setBtnName("Logout")
+                  : setBtnName("Login");
+              }}
+            >
+              {btnName}
+            </button>
+          </li>
         </ul>
-        <button
-          className="login"
-          onClick={() => {
-            btnName === "Login" ? setBtnName("Logout") : setBtnName("Login");
-          }}
-        >
-          {btnName}
-        </button>
       </div>
     </div>
   );

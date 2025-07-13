@@ -4,7 +4,7 @@ import { addItems } from "../Utils/cartSlice";
 import { useDispatch } from "react-redux";
 
 const ItemList = ({ items }) => {
-  // console.log(items);
+  console.log(items);
 
   const dispatch = useDispatch();
 
@@ -16,8 +16,8 @@ const ItemList = ({ items }) => {
 
   return (
     <>
-      {items.map((item) => (
-        <div key={item.card.info.id} className="item-container">
+      {items.map((item, index) => (
+        <div key={index} className="item-container">
           <div className="item-card">
             <div style={{ marginRight: "2rem" }}>
               <h3>{item.card.info.name}</h3>

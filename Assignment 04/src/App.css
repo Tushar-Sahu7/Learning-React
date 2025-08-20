@@ -136,6 +136,7 @@
   margin: 0;
   padding: 0;
   font-family: Arial, Helvetica, sans-serif, Pacifico;
+  background-color: #340101;
 }
 
 .header {
@@ -146,7 +147,6 @@
   margin: 1rem;
   justify-content: space-between;
   align-items: center;
-  background-color: rgba(255, 255, 255, 0.674);
   border: 2px solid #f452526b;
   backdrop-filter: blur(20px);
   border-radius: 0.5rem;
@@ -207,12 +207,15 @@
   border: none;
   padding: 1rem;
   border-radius: 3rem;
-  background-color: var(--primary);
-  color: white;
+  color: var(--primary);
+  border: 2px solid var(--primary);
 }
 
 .login:hover {
   cursor: pointer;
+  color: white;
+  background-color: var(--primary);
+  border: 2px solid var(--primary);
 }
 
 .filter {
@@ -226,7 +229,12 @@
   border-radius: 1rem;
   position: sticky;
   top: 105px;
+  background-color: transparent;
   z-index: 100000;
+}
+
+.search {
+  background-color: transparent;
 }
 
 .search-box {
@@ -237,7 +245,7 @@
   border: 2px solid var(--primary);
   margin: 0 0.5rem;
   font-family: sans-serif;
-  color: var(--text-950);
+  color: var(--text-200);
 }
 
 .search-box:focus-visible {
@@ -251,10 +259,8 @@
   font-size: 1.2rem;
   font-family: "Pacifico";
   cursor: pointer;
-  color: white;
-  border: 1px solid var(--primary-300);
-  background-color: var(--primary);
-  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+  color: var(--primary);
+  border: 1px solid;
 }
 
 .filter-btn {
@@ -266,22 +272,14 @@
   cursor: pointer;
   color: var(--primary);
   border: 1px solid var(--primary);
-  background-color: white;
-  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
-
 }
 
 .filter-btn:hover,
 .search-btn:hover {
+  color: white;
+  background-color: var(--primary);
+  border: 1px solid var(--primary);
   cursor: pointer;
-  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
-}
-
-.filter label {
-  font-size: 1.5rem;
-  font-family: "Pacifico";
-  font-weight: normal;
-  color: var(--primary);
 }
 
 .res-container {
@@ -337,6 +335,7 @@
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  color: whitesmoke;
 }
 
 
@@ -346,7 +345,7 @@
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  color: var(--text-800);
+  color: var(--text-500);
 }
 
 .res-card .rating {
@@ -355,6 +354,10 @@
   border-radius: 0.3rem;
   padding: 0.2rem 0.4rem;
   font-weight: 600;
+}
+
+.res-card .rating svg {
+  background-color: rgb(7, 196, 7);
 }
 
 .menu-container {
@@ -392,11 +395,16 @@
   font-weight: bolder;
 }
 
+.menu-card h3 {
+  color: var(--text-200);
+}
+
 .menu-header {
   width: 100%;
   display: flex;
   justify-content: space-between;
   padding: 1rem;
+  color: var(--text-100)
 }
 
 
@@ -421,8 +429,9 @@
 }
 
 .item-card:hover {
-  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  box-shadow: rgba(255, 129, 129, 0.2) 0px 7px 29px 0px;
   border-radius: 0.5rem;
+  /* border: 2px solid #f45252; */
 }
 
 .item-card img {
@@ -438,21 +447,21 @@
   line-height: 2.5rem;
   font-family: "Pacifico";
   font-weight: normal;
-  color: var(--text-800);
+  color: var(--primary);
   font-size: 1.5rem;
 }
 
 .item-card h4 {
   font-weight: 500;
+  color: var(--text-100);
 }
 
 .item-card p {
-  color: var(--text-500);
+  color: var(--text-300);
   overflow: hidden;
   text-overflow: ellipsis;
   word-break: break-word;
   overflow-wrap: anywhere;
-
 }
 
 .item-img {
@@ -484,7 +493,6 @@
   cursor: pointer;
   color: var(--primary);
   border: 1px solid var(--primary);
-  background-color: white;
   position: absolute;
   bottom: -1rem;
   z-index: 3;
@@ -577,10 +585,12 @@
   font-family: "Pacifico";
   margin: 0.7rem;
   font-weight: 500;
+  color: var(--text-100);
 }
 
 .heading h3 {
   font-size: larger;
+  color: var(--text-200);
 }
 
 .about-card h1 {

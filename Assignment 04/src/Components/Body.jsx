@@ -87,8 +87,8 @@ const Body = () => {
         >
           Top Rated Restaurant
         </button>
-        <div>
-          <label>UserName : </label>
+        <div className="search">
+          <label className="filter-btn">UserName : </label>
           <input
             className="search-box"
             value={loggedInUser}

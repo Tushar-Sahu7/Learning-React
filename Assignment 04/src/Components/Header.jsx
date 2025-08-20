@@ -22,7 +22,7 @@ const Header = () => {
         <div className="logo">
           <FontAwesomeIcon
             icon={faUtensils}
-            style={{ color: "white" }}
+            style={{ color: "#f45252" }}
             size="3x"
           />
         </div>

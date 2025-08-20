@@ -146,10 +146,11 @@
   margin: 1rem;
   justify-content: space-between;
   align-items: center;
-  background-color: var(--primary);
+  background-color: rgba(255, 255, 255, 0.674);
+  border: 2px solid #f452526b;
+  backdrop-filter: blur(20px);
   border-radius: 0.5rem;
   position: sticky;
-  mix-blend-mode: var(--blender);
 }
 
 .logo-container {
@@ -168,7 +169,7 @@
   font-family: "Pacifico", cursive;
   font-weight: 400;
   font-style: normal;
-  color: white;
+  color: var(--primary);
 }
 
 .nav-items {
@@ -190,7 +191,7 @@
 .login {
   padding: 0rem 1rem;
   margin: 0.5rem 0;
-  color: white;
+  color: var(--primary);
   text-transform: uppercase;
   font-weight: bold;
   font-family: Helvetica;
@@ -199,15 +200,15 @@
 
 .nav-items ul li a {
   text-decoration: none;
-  color: white;
+  color: var(--primary);
 }
 
 .login {
   border: none;
   padding: 1rem;
   border-radius: 3rem;
-  background-color: white;
-  color: var(--primary);
+  background-color: var(--primary);
+  color: white;
 }
 
 .login:hover {
@@ -223,7 +224,8 @@
   justify-content: space-around;
   margin: 1rem;
   border-radius: 1rem;
-  background-color: ghostwhite;
+  position: sticky;
+  top: 105px;
   z-index: 100000;
 }
 

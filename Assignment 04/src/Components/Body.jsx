@@ -63,6 +63,7 @@ const Body = () => {
           <input
             type="text"
             className="search-box"
+            data-testid="searchInput"
             value={searchText}
             onChange={(e) => setSearchText(e.target.value)}
             onKeyDown={(e) => {
@@ -85,7 +86,7 @@ const Body = () => {
             setFilteredRestaurant(topRated);
           }}
         >
-          Top Rated Restaurant
+          Top Rated Restaurants
         </button>
         <div className="search">
           <label className="filter-btn">UserName : </label>

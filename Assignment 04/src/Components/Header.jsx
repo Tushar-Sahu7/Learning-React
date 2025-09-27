@@ -1,7 +1,7 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUtensils, faCartShopping } from "@fortawesome/free-solid-svg-icons";
 import { useState, useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link } from "react-router";
 import useOnlineStatus from "../Utils/useOnlineStatus";
 import UserContext, { themeContext } from "../Utils/userContext";
 import { useSelector } from "react-redux";

@@ -1,4 +1,5 @@
 import {
+  fireEvent,
   getAllByAltText,
   getByTestId,
   render,

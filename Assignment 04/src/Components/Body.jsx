@@ -1,7 +1,7 @@
 import { useState, useEffect, useContext } from "react";
 import RestaurentCard, { withPromotedLabel } from "./RestaurantCard";
 import Shimmer from "./Shimmer";
-import { Link } from "react-router-dom";
+import { Link } from "react-router";
 import useOnlineStatus from "../Utils/useOnlineStatus";
 import UserContext from "../Utils/userContext.js";
 
@@ -21,7 +21,7 @@ const Body = () => {
     // console.log(json);
     const newRestaurants =
       json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle
-        ?.restaurants || [];
+        ?.restaurants;
 
     setListOfRestaurants(newRestaurants);
     setFilteredRestaurant(newRestaurants);
@@ -37,9 +37,7 @@ const Body = () => {
     const searchWords = searchText.toLowerCase().split(" ").filter(Boolean);
     const filtered = listOfRestaurants.filter((res) => {
       const name = res.info.name.toLowerCase();
-      const cuisines = res.info.cuisines
-        ? res.info.cuisines.join(" ").toLowerCase()
-        : "";
+      const cuisines = res.info.cuisines.join(" ").toLowerCase();
       return searchWords.some(
         (word) => name.includes(word) || cuisines.includes(word)
       );
@@ -92,6 +90,7 @@ const Body = () => {
           <label className="filter-btn">UserName : </label>
           <input
             className="search-box"
+            data-testid="username"
             value={loggedInUser}
             onChange={(e) => setUserName(e.target.value)}
           />
@@ -112,8 +111,6 @@ const Body = () => {
           </Link>
         ))}
       </div>
-
-      {loading && <p>Loading more restaurants...</p>}
     </div>
   );
 };

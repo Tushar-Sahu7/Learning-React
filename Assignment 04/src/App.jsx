@@ -1,9 +1,9 @@
 import "./App.css";
 import React, { lazy, Suspense, useState, useEffect } from "react";
 import { createRoot } from "react-dom/client";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { createBrowserRouter, RouterProvider } from "react-router";
 import Header from "./Components/Header";
-import { Outlet } from "react-router-dom";
+import { Outlet } from "react-router";
 import Body from "./Components/Body";
 import About from "./Components/About";
 import Contact from "./Components/Contact";

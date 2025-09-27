@@ -850,7 +850,7 @@
                       },
                       "availability": {
                         "nextCloseTime": "2025-08-24 04:00:00",
-                        "opened": true
+                        "opened": false
                       },
                       "badges": {
                         "imageBadges": [
@@ -930,7 +930,7 @@
                       },
                       "availability": {
                         "nextCloseTime": "2025-08-24 03:45:00",
-                        "opened": true
+                        "opened": false
                       },
                       "badges": {
                         "imageBadges": [

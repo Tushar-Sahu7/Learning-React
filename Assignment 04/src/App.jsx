@@ -32,10 +32,10 @@ const App = () => {
   return (
     <Provider store={appStore}>
       <UserContext value={{ loggedInUser: userName, setUserName }}>
-        <>
+        
           <Header />
           <Outlet />
-        </>
+        
       </UserContext>
     </Provider>
   );

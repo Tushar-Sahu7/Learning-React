@@ -62,7 +62,7 @@ it("should correctly show the online status", () => {
       </Provider>
     </BrowserRouter>
   );
-  const online = screen.getByText("Online Status: 😎");
+  const online = screen.getAllByText("Online Status: 😎");
   expect(online).toBeInTheDocument();
 });
 
@@ -75,6 +75,6 @@ it("should correctly show the offline status", () => {
       </Provider>
     </BrowserRouter>
   );
-  const offline = screen.getByText("Online Status: 🥶");
+  const offline = screen.getAllByText("Online Status: 🥶");
   expect(offline).toBeInTheDocument();
 });

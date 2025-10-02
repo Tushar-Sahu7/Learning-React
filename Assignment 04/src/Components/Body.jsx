@@ -47,7 +47,11 @@ const Body = () => {
 
   const onlineStatus = useOnlineStatus();
   if (onlineStatus === false) {
-    return <h1>You are Offline! Please check your internet connection</h1>;
+    return (
+      <h1 className="mx-auto my-70 w-full text-5xl text-center">
+        You are Offline! Please check your internet connection
+      </h1>
+    );
   }
 
   const { loggedInUser, setUserName } = useContext(UserContext);
@@ -55,12 +59,12 @@ const Body = () => {
   return listOfRestaurants.length === 0 ? (
     <Shimmer />
   ) : (
-    <div className="body">
-      <div className="filter">
-        <div className="search">
+    <div className="mx-auto max-w-full ">
+      <div className="flex flex-wrap mx-4 my-4 max-w-full rounded-2xl items-center justify-around bg-transparent backdrop-blur-md z-100 ">
+        <div className="flex flex-nowrap">
           <input
             type="text"
-            className="search-box"
+            className="border-brand-500 border rounded-3xl font-medium mx-2 px-3 py-1 text-sm sm:px-4 sm:py-2 sm:text-base font-body hover:border-brand-600 duration-100 text-neutral-700 hover:text-neutral-800 bg-white my-1"
             data-testid="searchInput"
             value={searchText}
             onChange={(e) => setSearchText(e.target.value)}
@@ -71,12 +75,15 @@ const Body = () => {
             }}
             placeholder="Search Restaurants..."
           />
-          <button className="search-btn" onClick={handleFilter}>
+          <button
+            className="bg-brand-500 text-white font-medium hover:bg-brand-400 mx-2 my-1 px-3 py-1 text-sm sm:px-4 sm:py-2 sm:text-base rounded-3xl"
+            onClick={handleFilter}
+          >
             Search
           </button>
         </div>
         <button
-          className="filter-btn"
+          className="bg-brand-500 text-white font-medium hover:bg-brand-400 m-2 px-3 py-1 text-sm sm:px-4 sm:py-2 sm:text-base rounded-3xl"
           onClick={() => {
             const topRated = listOfRestaurants.filter(
               (res) => res.info.avgRating >= 4.5
@@ -86,10 +93,12 @@ const Body = () => {
         >
           Top Rated Restaurants
         </button>
-        <div className="search">
-          <label className="filter-btn">UserName : </label>
+        <div className="m-2">
+          <label className="drop-shadow-[0_1.2px_1.2px_white]">
+            UserName :{" "}
+          </label>
           <input
-            className="search-box"
+            className="border-brand-500 border rounded-3xl font-medium mx-2 px-3 py-1 text-sm sm:px-4 sm:py-2 sm:text-base font-body text-neutral-700 bg-white"
             data-testid="username"
             value={loggedInUser}
             onChange={(e) => setUserName(e.target.value)}
@@ -97,11 +106,12 @@ const Body = () => {
         </div>
       </div>
 
-      <div className="res-container">
+      <div className="max-w-full mx-auto p-6 grid gap-12 grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 auto-rows-fr">
         {filteredRestaurant.map((restaurant) => (
           <Link
             to={"/Restaurant/" + restaurant.info.id}
             key={restaurant.info.id}
+            className="w-full block"
           >
             {restaurant.info.availability.opened ? (
               <RestaurantCardPromoted resData={restaurant} />

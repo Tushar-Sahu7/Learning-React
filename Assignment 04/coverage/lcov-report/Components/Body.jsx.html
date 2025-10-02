@@ -181,7 +181,17 @@
 <a name='L116'></a><a href='#L116'>116</a>
 <a name='L117'></a><a href='#L117'>117</a>
 <a name='L118'></a><a href='#L118'>118</a>
-<a name='L119'></a><a href='#L119'>119</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L119'></a><a href='#L119'>119</a>
+<a name='L120'></a><a href='#L120'>120</a>
+<a name='L121'></a><a href='#L121'>121</a>
+<a name='L122'></a><a href='#L122'>122</a>
+<a name='L123'></a><a href='#L123'>123</a>
+<a name='L124'></a><a href='#L124'>124</a>
+<a name='L125'></a><a href='#L125'>125</a>
+<a name='L126'></a><a href='#L126'>126</a>
+<a name='L127'></a><a href='#L127'>127</a>
+<a name='L128'></a><a href='#L128'>128</a>
+<a name='L129'></a><a href='#L129'>129</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -233,6 +243,10 @@
 <span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">17x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">17x</span>
@@ -261,10 +275,15 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">20x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -283,6 +302,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">138x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -348,7 +368,11 @@ const Body = () =&gt; {
 &nbsp;
   const onlineStatus = useOnlineStatus();
   if (onlineStatus === false) {
-    return &lt;h1&gt;You are Offline! Please check your internet connection&lt;/h1&gt;;
+    return (
+      &lt;h1 className="mx-auto my-70 w-full text-5xl text-center"&gt;
+        You are Offline! Please check your internet connection
+      &lt;/h1&gt;
+    );
   }
 &nbsp;
   const { loggedInUser, setUserName } = useContext(UserContext);
@@ -356,12 +380,12 @@ const Body = () =&gt; {
   return listOfRestaurants.length === 0 ? (
     &lt;Shimmer /&gt;
   ) : (
-    &lt;div className="body"&gt;
-      &lt;div className="filter"&gt;
-        &lt;div className="search"&gt;
+    &lt;div className="mx-auto max-w-full "&gt;
+      &lt;div className="flex flex-wrap mx-4 my-4 max-w-full rounded-2xl items-center justify-around bg-transparent backdrop-blur-md z-100 "&gt;
+        &lt;div className="flex flex-nowrap"&gt;
           &lt;input
             type="text"
-            className="search-box"
+            className="border-brand-500 border rounded-3xl font-medium mx-2 px-3 py-1 text-sm sm:px-4 sm:py-2 sm:text-base font-body hover:border-brand-600 duration-100 text-neutral-700 hover:text-neutral-800 bg-white my-1"
             data-testid="searchInput"
             value={searchText}
             onChange={(e) =&gt; setSearchText(e.target.value)}
@@ -372,12 +396,15 @@ const Body = () =&gt; {
             }}
             placeholder="Search Restaurants..."
           /&gt;
-          &lt;button className="search-btn" onClick={handleFilter}&gt;
+          &lt;button
+            className="bg-brand-500 text-white font-medium hover:bg-brand-400 mx-2 my-1 px-3 py-1 text-sm sm:px-4 sm:py-2 sm:text-base rounded-3xl"
+            onClick={handleFilter}
+          &gt;
             Search
           &lt;/button&gt;
         &lt;/div&gt;
         &lt;button
-          className="filter-btn"
+          className="bg-brand-500 text-white font-medium hover:bg-brand-400 m-2 px-3 py-1 text-sm sm:px-4 sm:py-2 sm:text-base rounded-3xl"
           onClick={() =&gt; {
             const topRated = listOfRestaurants.filter(
               (res) =&gt; res.info.avgRating &gt;= 4.5
@@ -387,10 +414,12 @@ const Body = () =&gt; {
         &gt;
           Top Rated Restaurants
         &lt;/button&gt;
-        &lt;div className="search"&gt;
-          &lt;label className="filter-btn"&gt;UserName : &lt;/label&gt;
+        &lt;div className="m-2"&gt;
+          &lt;label className="drop-shadow-[0_1.2px_1.2px_white]"&gt;
+            UserName :{" "}
+          &lt;/label&gt;
           &lt;input
-            className="search-box"
+            className="border-brand-500 border rounded-3xl font-medium mx-2 px-3 py-1 text-sm sm:px-4 sm:py-2 sm:text-base font-body text-neutral-700 bg-white"
             data-testid="username"
             value={loggedInUser}
             onChange={(e) =&gt; setUserName(e.target.value)}
@@ -398,11 +427,12 @@ const Body = () =&gt; {
         &lt;/div&gt;
       &lt;/div&gt;
 &nbsp;
-      &lt;div className="res-container"&gt;
+      &lt;div className="max-w-full mx-auto p-6 grid gap-12 grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 auto-rows-fr"&gt;
         {filteredRestaurant.map((restaurant) =&gt; (
           &lt;Link
             to={"/Restaurant/" + restaurant.info.id}
             key={restaurant.info.id}
+            className="w-full block"
           &gt;
             {restaurant.info.availability.opened ? (
               &lt;RestaurantCardPromoted resData={restaurant} /&gt;
@@ -424,7 +454,7 @@ export default Body;
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2025-09-27T17:54:42.192Z
+                at 2025-10-02T18:06:28.707Z
             </div>
         <script src="../prettify.js"></script>
         <script>

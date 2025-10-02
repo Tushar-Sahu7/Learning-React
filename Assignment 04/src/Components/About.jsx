@@ -12,10 +12,10 @@ class About extends Component {
 
   render() {
     return (
-      <div>
-        <h1>About Class Component</h1>
-        <div>
-          LoggedInUser{" "}
+      <div className="flex flex-wrap flex-col items-center justify-center m-4 p-4">
+        <h1 className="font-heading-1 text-2xl text-center m-4 capitalize">About Class Component</h1>
+        <div className="m-4 text-center">
+          LoggedIn User{" "}
           <UserContext.Consumer>
             {({ loggedInUser }) => <h1>{loggedInUser}</h1>}
           </UserContext.Consumer>

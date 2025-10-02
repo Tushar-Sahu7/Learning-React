@@ -101,7 +101,39 @@
 <a name='L36'></a><a href='#L36'>36</a>
 <a name='L37'></a><a href='#L37'>37</a>
 <a name='L38'></a><a href='#L38'>38</a>
-<a name='L39'></a><a href='#L39'>39</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L39'></a><a href='#L39'>39</a>
+<a name='L40'></a><a href='#L40'>40</a>
+<a name='L41'></a><a href='#L41'>41</a>
+<a name='L42'></a><a href='#L42'>42</a>
+<a name='L43'></a><a href='#L43'>43</a>
+<a name='L44'></a><a href='#L44'>44</a>
+<a name='L45'></a><a href='#L45'>45</a>
+<a name='L46'></a><a href='#L46'>46</a>
+<a name='L47'></a><a href='#L47'>47</a>
+<a name='L48'></a><a href='#L48'>48</a>
+<a name='L49'></a><a href='#L49'>49</a>
+<a name='L50'></a><a href='#L50'>50</a>
+<a name='L51'></a><a href='#L51'>51</a>
+<a name='L52'></a><a href='#L52'>52</a>
+<a name='L53'></a><a href='#L53'>53</a>
+<a name='L54'></a><a href='#L54'>54</a>
+<a name='L55'></a><a href='#L55'>55</a>
+<a name='L56'></a><a href='#L56'>56</a>
+<a name='L57'></a><a href='#L57'>57</a>
+<a name='L58'></a><a href='#L58'>58</a>
+<a name='L59'></a><a href='#L59'>59</a>
+<a name='L60'></a><a href='#L60'>60</a>
+<a name='L61'></a><a href='#L61'>61</a>
+<a name='L62'></a><a href='#L62'>62</a>
+<a name='L63'></a><a href='#L63'>63</a>
+<a name='L64'></a><a href='#L64'>64</a>
+<a name='L65'></a><a href='#L65'>65</a>
+<a name='L66'></a><a href='#L66'>66</a>
+<a name='L67'></a><a href='#L67'>67</a>
+<a name='L68'></a><a href='#L68'>68</a>
+<a name='L69'></a><a href='#L69'>69</a>
+<a name='L70'></a><a href='#L70'>70</a>
+<a name='L71'></a><a href='#L71'>71</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -111,6 +143,20 @@
 <span class="cline-any cline-yes">140x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">140x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -139,6 +185,24 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { CDN_URLS } from "../Utils/constants";
 import { faStar } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -149,18 +213,32 @@ const RestaurentCard = (props) =&gt; {
     resData?.info;
 &nbsp;
   return (
-    &lt;div data-testid="resCard" className="res-card"&gt;
-      &lt;img alt="res-logo" src={CDN_URLS + cloudinaryImageId} /&gt;
-      &lt;div&gt;&lt;/div&gt;
-      &lt;h3&gt;{name}&lt;/h3&gt;
-      &lt;span className="rating"&gt;
+    &lt;div
+      data-testid="resCard"
+      className="w-full h-full relative res-card flex flex-col"
+    &gt;
+      &lt;img
+        className="w-full h-40 sm:h-44 md:h-48 lg:h-56 rounded-xl object-cover object-center"
+        alt="res-logo"
+        src={CDN_URLS + cloudinaryImageId}
+      /&gt;
+      &lt;h3 className="font-heading-1 text-base sm:text-lg md:text-2xl overflow-hidden h-10 text-ellipsis whitespace-nowrap my-2"&gt;
+        {name}
+      &lt;/h3&gt;
+      &lt;span className="inline-flex items-center gap-1 bg-green-500 text-white px-2 sm:px-3 py-0.5 sm:py-1 rounded w-fit font-semibold text-xs sm:text-sm"&gt;
         &lt;FontAwesomeIcon icon={faStar} style={{ color: "#fff" }} size="sm" /&gt;
         {"  "}
         {avgRating}
       &lt;/span&gt;
-      &lt;h4&gt;{cuisines.join(", ")}&lt;/h4&gt;
-      &lt;h4&gt;{costForTwo}&lt;/h4&gt;
-      &lt;h4&gt;{sla.deliveryTime} minutes&lt;/h4&gt;
+      &lt;h4 className="font-body text-neutral-500 overflow-hidden text-ellipsis whitespace-nowrap my-1 text-xs sm:text-sm"&gt;
+        {cuisines.join(", ")}
+      &lt;/h4&gt;
+      &lt;h4 className="font-body-bold text-neutral-800 text-sm sm:text-base"&gt;
+        {costForTwo}
+      &lt;/h4&gt;
+      &lt;h4 className="font-body-bold font-semibold text-neutral-800 my-1 text-xs sm:text-sm"&gt;
+        {sla.deliveryTime} minutes
+      &lt;/h4&gt;
     &lt;/div&gt;
   );
 };
@@ -168,8 +246,26 @@ const RestaurentCard = (props) =&gt; {
 export const withPromotedLabel = (RestaurentCard) =&gt; {
   return (props) =&gt; {
     return (
-      &lt;div&gt;
-        &lt;label className="label"&gt;Open&lt;/label&gt;
+      &lt;div className="relative transform transition duration-100 hover:scale-95 ease-in origin-center"&gt;
+        &lt;label
+          className="
+            absolute 
+            -left-4 sm:-left-4 
+            top-2 sm:top-0
+            bg-success-500 
+            rounded-tl-md 
+            px-2 pr-4 py-1 sm:px-4 sm:pr-8 sm:py-[0.2rem]
+            text-xs sm:text-sm 
+            text-white font-semibold 
+            border-b-[1rem] border-b-[rgba(0,0,0,0.333)] 
+            [--f:1rem] [--r:1rem] 
+            [clip-path:polygon(100%_0,0_0,0_calc(100%-var(--f)),var(--f)_100%,var(--f)_calc(100%-var(--f)),100%_calc(100%-var(--f)),calc(100%-var(--r))_calc(50%-var(--f)/2))]
+            shadow-[rgba(0,0,0,0.16)_0px_3px_6px,rgba(0,0,0,0.23)_0px_3px_6px] 
+            z-10
+          "
+        &gt;
+          Open
+        &lt;/label&gt;
         &lt;RestaurentCard {...props} /&gt;
       &lt;/div&gt;
     );
@@ -184,7 +280,7 @@ export default RestaurentCard;
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2025-09-27T17:54:42.192Z
+                at 2025-10-02T18:06:28.707Z
             </div>
         <script src="../prettify.js"></script>
         <script>
